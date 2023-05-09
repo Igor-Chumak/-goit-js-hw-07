@@ -4,18 +4,24 @@ const galleryItemREf = document.querySelector(".gallery");
 let itemLightbox = {};
 
 galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
-galleryItemREf.addEventListener("click", targetImgClickHandle);
 
-// galleryItemREf.onclick = (e) => {
-//   e.preventDefault();
-//   basicLightbox
-//     .create(
-//       `
-//       <img src="${e.target.dataset.source}" width="1200">
-//   `
-//     )
-//     .show();
-// };
+galleryItemREf.onclick = (e) => {
+  e.preventDefault();
+  itemLightbox = basicLightbox.create(
+    `
+      <img src="${e.target.dataset.source}" width="1200">
+  `,
+    {
+      onClose: () => {
+        window.removeEventListener("keydown", handlePressEscKey);
+      },
+      onShow: () => {
+        window.addEventListener("keydown", handlePressEscKey);
+      },
+    }
+  );
+  itemLightbox.show();
+};
 
 function createGalleryMarkup(galleryItems) {
   return galleryItems
@@ -32,29 +38,6 @@ function createGalleryMarkup(galleryItems) {
     </li>`;
     })
     .join("");
-}
-
-function targetImgClickHandle(e) {
-  e.preventDefault();
-  basicLightboxCreate(e.target.dataset.source);
-}
-
-function basicLightboxCreate(url) {
-  itemLightbox = basicLightbox.create(
-    `
-      <img src="${url}" width="1200">
-  `,
-    {
-      onClose: () => {
-        window.removeEventListener("keydown", handlePressEscKey);
-      },
-      onShow: () => {
-        window.addEventListener("keydown", handlePressEscKey);
-      },
-    }
-  );
-  console.log("itemLightbox", itemLightbox);
-  itemLightbox.show();
 }
 
 function handlePressEscKey(e) {
