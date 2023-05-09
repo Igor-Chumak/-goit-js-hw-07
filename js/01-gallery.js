@@ -11,7 +11,7 @@ galleryItemREf.addEventListener("click", targetImgClickHandle);
 //   basicLightbox
 //     .create(
 //       `
-//       <img src="${e.target.dataset.source}" width="1200" height="853">
+//       <img src="${e.target.dataset.source}" width="1200">
 //   `
 //     )
 //     .show();
@@ -46,10 +46,10 @@ function basicLightboxCreate(url) {
   `,
     {
       onClose: () => {
-        basicLightboxClose();
+        window.removeEventListener("keydown", handlePressEscKey);
       },
       onShow: () => {
-        onEscKeyWhenLightboxShow();
+        window.addEventListener("keydown", handlePressEscKey);
       },
     }
   );
@@ -57,21 +57,9 @@ function basicLightboxCreate(url) {
   itemLightbox.show();
 }
 
-function basicLightboxClose() {
-  console.log("Lightbox is closed");
-  window.removeEventListener("keydown", handlePressEscKey);
-  return true;
-}
-
-function onEscKeyWhenLightboxShow() {
-  console.log("lightbox now visible");
-  window.addEventListener("keydown", handlePressEscKey);
-}
-
 function handlePressEscKey(e) {
   if (e.code !== "Escape") {
     return;
   }
-  console.log("code: ", e.code);
   itemLightbox.close();
 }
