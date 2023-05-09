@@ -42,7 +42,7 @@ function basicLightboxCreate(url) {
   basicLightbox
     .create(
       `
-      <img src="${url}" width="1200" height="853">
+      <img src="${url}" width="1200">
   `,
       {
         onClose: () => {
@@ -55,19 +55,22 @@ function basicLightboxCreate(url) {
 
 function basicLightboxClose() {
   console.log("Lightbox is closed");
+  window.removeEventListener("keydown", handlePressEscKey);
   return true;
 }
 
 function onEscKeyWhenLightboxShow() {
   console.log("lightbox now visible");
-  document.addEventListener(
+  window.addEventListener(
     "keydown",
-    (e) => {
-      if (e.code !== "Escape") {
-        return;
-      }
-      console.log("code: ", e.code);
-    }
+    handlePressEscKey
     // { once: true }
   );
+}
+
+function handlePressEscKey(e) {
+  if (e.code !== "Escape") {
+    return;
+  }
+  console.log("code: ", e.code);
 }
