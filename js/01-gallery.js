@@ -29,6 +29,14 @@ function createGalleryMarkup(galleryItems) {
 
 function targetImgClickHandle(e) {
   e.preventDefault();
-    console.log(e.target);
-    let imgClicked = e.target.dataset.
+  console.log(e.target.dataset.source);
+  return e.target.dataset.source;
 }
+
+import * as basicLightbox from "basiclightbox";
+
+const instance = basicLightbox.create(`
+    <img src="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg" width="1280" height="1280">
+`);
+
+instance.show();
