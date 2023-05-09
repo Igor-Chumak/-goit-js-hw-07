@@ -1,47 +1,45 @@
-import { galleryItems } from "./gallery-items.js";
-// console.log(galleryItems);
-// Change code below this line
-const ref = {
-  galeryItem: document.querySelector(".gallery"),
-};
-const GalleryMarkup = createGalleryMarkup(galleryItems);
+// import { galleryItems } from "./gallery-items.js";
+// // console.log(galleryItems);
+// // Change code below this line
+// const galleryItemREf = document.querySelector(".gallery");
+// const GalleryMarkup = createGalleryMarkup(galleryItems);
 
-ref.galeryItem.insertAdjacentHTML("afterbegin", GalleryMarkup);
-ref.galeryItem.addEventListener("click", targetImgClickHandle);
+// galleryItemREf.insertAdjacentHTML("afterbegin", GalleryMarkup);
+// galleryItemREf.addEventListener("click", targetImgClickHandle);
 
-// function
-function createGalleryMarkup(galleryItems) {
-  return galleryItems
-    .map(({ original, preview, description }) => {
-      return `    <li class="gallery__item">
-        <a class="gallery__link" href=${original}">
-           <img
-            class="gallery__image"
-            src="${preview}"
-            data-source="${original}"
-            alt="${description}"
-        />
-        </a>
-    </li>`;
-    })
-    .join("");
-}
+// // function
+// function createGalleryMarkup(galleryItems) {
+//   return galleryItems
+//     .map(({ original, preview, description }) => {
+//       return `    <li class="gallery__item">
+//         <a class="gallery__link" href=${original}">
+//            <img
+//             class="gallery__image"
+//             src="${preview}"
+//             data-source="${original}"
+//             alt="${description}"
+//         />
+//         </a>
+//     </li>`;
+//     })
+//     .join("");
+// }
 
-function targetImgClickHandle(e) {
-  e.preventDefault();
-  basicLightboxCreate(e.target.dataset.source);
-  // return;
-}
+// function targetImgClickHandle(e) {
+//   e.preventDefault();
+//   basicLightboxCreate(e.target.dataset.source);
+//   // return;
+// }
 
-function basicLightboxCreate(url) {
-  basicLightbox
-    .create(
-      `
-      <img src="${url}" width="1200" height="853">
-  `
-    )
-    .show();
-}
+// function basicLightboxCreate(url) {
+//   basicLightbox
+//     .create(
+//       `
+//       <img src="${url}" width="1200" height="853">
+//   `
+//     )
+//     .show();
+// }
 //   import * as basicLightbox from "basiclightbox";
 //   const instance = basicLightbox.create(`
 //     <img src="${url} width="1280" height="1280">
