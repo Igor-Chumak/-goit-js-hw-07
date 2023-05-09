@@ -1,11 +1,11 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
-const galeryItemREf = document.querySelector(".gallery");
+const galleryItemREf = document.querySelector(".gallery");
 
-galeryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
+galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
 // ref.galeryItem.addEventListener("click", targetImgClickHandle);
 
-galeryItemREf.onclick = (e) => {
+galleryItemREf.onclick = (e) => {
   e.preventDefault();
   basicLightbox
     .create(
@@ -16,7 +16,6 @@ galeryItemREf.onclick = (e) => {
     .show();
 };
 
-// // function
 function createGalleryMarkup(galleryItems) {
   return galleryItems
     .map(({ original, preview, description }) => {
