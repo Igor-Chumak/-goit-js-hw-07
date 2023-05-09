@@ -45,5 +45,9 @@ function basicLightboxCreate(url) {
       <img src="${url}" width="1200" height="853">
   `
     )
-    .show();
+    .show(onEscWhenLightboxShow);
+}
+
+function onEscWhenLightboxShow() {
+  console.log("lightbox now visible");
 }
