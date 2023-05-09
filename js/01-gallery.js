@@ -43,11 +43,31 @@ function basicLightboxCreate(url) {
     .create(
       `
       <img src="${url}" width="1200" height="853">
-  `
+  `,
+      {
+        onClose: () => {
+          basicLightboxClose();
+        },
+      }
     )
-    .show(onEscWhenLightboxShow);
+    .show(onEscKeyWhenLightboxShow);
 }
 
-function onEscWhenLightboxShow() {
+function basicLightboxClose() {
+  console.log("Lightbox is closed");
+  return true;
+}
+
+function onEscKeyWhenLightboxShow() {
   console.log("lightbox now visible");
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.code !== "Escape") {
+        return;
+      }
+      console.log("code: ", e.code);
+    }
+    // { once: true }
+  );
 }
