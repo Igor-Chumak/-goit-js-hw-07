@@ -6,6 +6,10 @@ const galleryItemREf = document.querySelector(".gallery");
 
 galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
 
+galleryItemREf.onclick = (e) => {
+  e.preventDefault();
+};
+
 //
 function createGalleryMarkup(galleryItems) {
   return galleryItems
