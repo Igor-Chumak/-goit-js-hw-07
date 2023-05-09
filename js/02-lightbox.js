@@ -3,11 +3,22 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const galleryItemREf = document.querySelector(".gallery");
-
 galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
+
+let lightbox = new SimpleLightbox(".gallery a", {
+  /* options */
+  captionType: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
+// console.log("lightbox", lightbox);
 
 galleryItemREf.onclick = (e) => {
   e.preventDefault();
+  console.log("lightbox2", lightbox);
+  lightbox();
+  // lightbox.on("show.simplelightbox", function () {});
+  // e.target.dataset.source;
 };
 
 //
