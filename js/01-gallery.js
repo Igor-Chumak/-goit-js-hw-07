@@ -1,5 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
+
 const galleryItemREf = document.querySelector(".gallery");
 let itemLightbox = {};
 
