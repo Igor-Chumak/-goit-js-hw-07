@@ -1,6 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 const galleryItemREf = document.querySelector(".gallery");
+let itemLightbox = {};
 
 galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
 galleryItemREf.addEventListener("click", targetImgClickHandle);
@@ -39,7 +40,7 @@ function targetImgClickHandle(e) {
 }
 
 function basicLightboxCreate(url) {
-  const itemLightbox = basicLightbox.create(
+  itemLightbox = basicLightbox.create(
     `
       <img src="${url}" width="1200">
   `,
