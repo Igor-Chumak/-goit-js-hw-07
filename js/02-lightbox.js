@@ -1,12 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
-// console.log(galleryItems);
 // Change code below this line
 
 const galleryItemREf = document.querySelector(".gallery");
 galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems));
 
 let lightbox = new SimpleLightbox(".gallery a", {
-  /* options */
   captionsData: "alt",
   captionDelay: 250,
 });
