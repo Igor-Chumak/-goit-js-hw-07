@@ -7,26 +7,20 @@ galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems
 
 let lightbox = new SimpleLightbox(".gallery a", {
   /* options */
-  captionType: "alt",
-  captionPosition: "bottom",
+  captionsData: "alt",
   captionDelay: 250,
 });
-// console.log("lightbox", lightbox);
 
 galleryItemREf.onclick = (e) => {
   e.preventDefault();
-  console.log("lightbox2", lightbox);
-  lightbox();
-  // lightbox.on("show.simplelightbox", function () {});
-  // e.target.dataset.source;
+  lightbox.next();
 };
 
-//
 function createGalleryMarkup(galleryItems) {
   return galleryItems
     .map(({ original, preview, description }) => {
       return `    <li class="gallery__item">
-        <a class="gallery__link" href=${original}">
+        <a class="gallery__link" href="${original}">
            <img
             class="gallery__image"
             src="${preview}"
