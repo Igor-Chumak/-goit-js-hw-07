@@ -52,6 +52,7 @@ function basicLightboxCreate(url) {
       },
     }
   );
+  console.log("itemLightbox", itemLightbox);
   itemLightbox.show();
 }
 
