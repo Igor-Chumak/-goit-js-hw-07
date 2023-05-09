@@ -39,18 +39,20 @@ function targetImgClickHandle(e) {
 }
 
 function basicLightboxCreate(url) {
-  basicLightbox
-    .create(
-      `
+  const itemLightbox = basicLightbox.create(
+    `
       <img src="${url}" width="1200">
   `,
-      {
-        onClose: () => {
-          basicLightboxClose();
-        },
-      }
-    )
-    .show(onEscKeyWhenLightboxShow);
+    {
+      onClose: () => {
+        basicLightboxClose();
+      },
+      onShow: () => {
+        onEscKeyWhenLightboxShow();
+      },
+    }
+  );
+  itemLightbox.show();
 }
 
 function basicLightboxClose() {
@@ -73,4 +75,5 @@ function handlePressEscKey(e) {
     return;
   }
   console.log("code: ", e.code);
+  // itemLightbox.close();
 }
