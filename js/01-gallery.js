@@ -63,11 +63,7 @@ function basicLightboxClose() {
 
 function onEscKeyWhenLightboxShow() {
   console.log("lightbox now visible");
-  window.addEventListener(
-    "keydown",
-    handlePressEscKey
-    // { once: true }
-  );
+  window.addEventListener("keydown", handlePressEscKey);
 }
 
 function handlePressEscKey(e) {
@@ -75,5 +71,5 @@ function handlePressEscKey(e) {
     return;
   }
   console.log("code: ", e.code);
-  // itemLightbox.close();
+  itemLightbox.close();
 }
