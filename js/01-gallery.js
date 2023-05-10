@@ -8,6 +8,9 @@ galleryItemREf.insertAdjacentHTML("afterbegin", createGalleryMarkup(galleryItems
 
 galleryItemREf.onclick = (e) => {
   e.preventDefault();
+  if (e.target === e.currentTarget) {
+    return;
+  }
   itemLightbox = basicLightbox.create(
     `
       <img src="${e.target.dataset.source}" width="1200">
