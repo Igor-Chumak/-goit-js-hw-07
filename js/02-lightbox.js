@@ -10,8 +10,6 @@ let lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
 });
 
-lightbox.next();
-
 function createGalleryMarkup(galleryItems) {
   return galleryItems
     .map(({ original, preview, description }) => {
